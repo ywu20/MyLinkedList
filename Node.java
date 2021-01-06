@@ -6,28 +6,32 @@ public class Node{
  data=value;
 }
 
-String getData(){
+public String getData(){
   return data;
 }
 
-Node getNext(){
+public Node getNext(){
   return next;
 }
 
-Node getPrev(){
+public Node getPrev(){
   return prev;
 }
 
-void setData(String x){
+public void setData(String x){
   data=x;
 }
 
-void setNext(Node x){
+public void setNext(Node x){
   next=x;
 }
 
-void setPrev(Node x){
+public void setPrev(Node x){
   prev=x;
+}
+
+public String toString(){
+  return "data: "+ data+" prev: "+prev.getData()+" next: "+next.getData();
 }
  //write get/set methods for all three instance variables.
 }
