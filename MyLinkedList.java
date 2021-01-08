@@ -59,10 +59,18 @@ if(index==size){
  }
 
  public String remove(int index){
-   Node r=findNode(index);
+String out="";
+   if(index==0){
+     out=start.getData();
+     start=start.getNext();
+     start.setPrev(null);
+   }else{
+     Node r=findNode(index);
    r.getPrev().setNext(r.getNext());
    r.getNext().setPrev(r.getPrev());
-   return r.getData();
+  out=r.getData();
+ }
+ return out;
  }
  public String get(int index){
    if(index >=size || index<0){
