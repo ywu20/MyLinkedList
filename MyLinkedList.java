@@ -74,10 +74,17 @@ while (current != null){
  current = current.getNext();
 }
 }
-/*
+
  public String toString(){
-//just for preliminary testing
-};*/
+   String out="[";
+   Node current = start;
+ while (current != null){
+  out+=current.getData()+", ";
+  current = current.getNext();
+ }
+ out=out.substring(0,out.length()-2)+"]";
+ return out;
+}
  //Any helper method that returns a Node object MUST BE PRIVATE!
 
 }
