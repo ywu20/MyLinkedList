@@ -11,7 +11,6 @@ public class MyLinkedList{
  };
  public boolean add(String value){
    Node newEnd=new Node(value);
-   Node y=new Node(end.getData());
    if(size==0){
      start=newEnd;
      end=newEnd;
@@ -57,6 +56,13 @@ if(index==size){
      insert.setNext(current);
      size++;
    }
+ }
+
+ public String remove(int index){
+   Node r=findNode(index);
+   r.getPrev().setNext(r.getNext());
+   r.getNext().setPrev(r.getPrev());
+   return r.getData();
  }
  public String get(int index){
    if(index >=size || index<0){
