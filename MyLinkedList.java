@@ -3,8 +3,6 @@ public class MyLinkedList{
  private Node start,end;
  public MyLinkedList(){
    size=0;
-  // start=null;
-  // end=null;
  }
  public int size(){
    return size;
@@ -59,6 +57,9 @@ if(index==size){
  }
 
  public String remove(int index){
+   if(index<0 || index>=size){
+     throw new IndexOutOfBoundsException();
+   }
 String out="";
 if(size==1){
   out=start.getData();
