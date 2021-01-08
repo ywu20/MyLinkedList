@@ -36,12 +36,12 @@ public class MyLinkedList{
        current=current.getNext();
      }
      Node p=current.getPrev();
-     Node n=current.getNext();
+  //   Node n=current.getNext();
      Node insert=new Node(value);
      p.setNext(insert);
      insert.setPrev(p);
      current.setPrev(insert);
-     insert.setNext(n);
+     insert.setNext(current);
    }
  }
  public String get(int index){
