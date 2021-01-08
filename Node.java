@@ -1,3 +1,4 @@
+import java.util.*;
 public class Node{
   private String data;
   private Node next,prev;
@@ -31,7 +32,20 @@ public void setPrev(Node x){
 }
 
 public String toString(){
-  return "data: "+ data+" prev: "+prev.getData()+" next: "+next.getData();
-}
+  String p=" prev:";
+  String n=" next:";
+  try{
+    p+=prev.getData();
+  }catch(NullPointerException e){
+    p+="null";
+  }
+
+  try{
+    n+=next.getData();
+  }catch(NullPointerException e){
+    n+="null";
+  }
+  return "data:"+ data+p+n;
  //write get/set methods for all three instance variables.
+}
 }
