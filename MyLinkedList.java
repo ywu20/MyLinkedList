@@ -85,6 +85,11 @@ if(size==1){
  size--;
  return out;
  }
+
+ public void extend(MyLinkedList other){
+   end.setNext(other.start);
+   other.start.setPrev(this.end);
+ }
  public String get(int index){
    if(index >=size || index<0){
      throw new IndexOutOfBoundsException();
