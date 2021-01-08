@@ -27,8 +27,16 @@ public class MyLinkedList{
  };
 
  public void add(int index, String value){
+    Node insert=new Node(value);
    if(index >=size){
      throw new IndexOutOfBoundsException();
+   } else if(index==size-1){
+     add(value);
+   }
+   else if(index==0){
+     insert.setNext(start);
+     start.setPrev(insert);
+     start=insert;
    }
    else{
      Node current=start;
@@ -36,8 +44,6 @@ public class MyLinkedList{
        current=current.getNext();
      }
      Node p=current.getPrev();
-  //   Node n=current.getNext();
-     Node insert=new Node(value);
      p.setNext(insert);
      insert.setPrev(p);
      current.setPrev(insert);
