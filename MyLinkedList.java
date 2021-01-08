@@ -64,12 +64,19 @@ String out="";
      out=start.getData();
      start=start.getNext();
      start.setPrev(null);
-   }else{
+   }
+  else if(index==size-1){
+     out=end.getData();
+     end=end.getPrev();
+     end.setNext(null);
+   }
+    else{
      Node r=findNode(index);
    r.getPrev().setNext(r.getNext());
    r.getNext().setPrev(r.getPrev());
   out=r.getData();
  }
+ size--;
  return out;
  }
  public String get(int index){
@@ -106,7 +113,11 @@ while (current != null){
   out+=current.getData()+", ";
   current = current.getNext();
  }
- out=out.substring(0,out.length()-2)+"]";
+ if(size != 0){
+ out=out.substring(0,out.length()-2);
+}
+  out+="]";
+
  return out;
 }
  //Any helper method that returns a Node object MUST BE PRIVATE!
