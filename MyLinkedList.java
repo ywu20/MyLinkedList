@@ -27,7 +27,6 @@ public class MyLinkedList{
  }
 
 private Node findNode(int index){
-
   Node current=start;
   for(int i=0; i<index;i++){
     current=current.getNext();
@@ -36,7 +35,7 @@ private Node findNode(int index){
 }
 
  public void add(int index, String value){
-   if(index >size){
+   if(index >size || index<0){
      throw new IndexOutOfBoundsException();
    }
     Node insert=new Node(value);
@@ -47,6 +46,7 @@ if(index==size){
      insert.setNext(start);
      start.setPrev(insert);
      start=insert;
+     size++;
    }
    else{
     Node current=findNode(index);
@@ -55,10 +55,11 @@ if(index==size){
      insert.setPrev(p);
      current.setPrev(insert);
      insert.setNext(current);
+     size++;
    }
  }
  public String get(int index){
-   if(index >=size){
+   if(index >=size || index<0){
      throw new IndexOutOfBoundsException();
    }
    return findNode(index).getData();
@@ -66,9 +67,9 @@ if(index==size){
 
  public String set(int index, String value)
 {
-  if(index >=size){
+  if(index >=size || index<0){
     throw new IndexOutOfBoundsException();
-  } 
+  }
   Node current=findNode(index);
   String out=current.getData();
   current.setData(value);
