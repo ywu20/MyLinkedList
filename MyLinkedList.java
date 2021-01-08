@@ -56,11 +56,15 @@ private Node findNode(int index){
    }
  }
  public String get(int index){
-   return "hi";
+   return findNode(index).getData();
  }
+
  public String set(int index, String value)
 {
-  return "boo";
+  Node current=findNode(index);
+  String out=current.getData();
+  current.setData(value);
+  return out;
 }
 
 public void print(){
