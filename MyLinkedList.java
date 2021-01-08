@@ -24,7 +24,15 @@ public class MyLinkedList{
 
  size++;
    return true;
- };
+ }
+
+private Node findNode(int index){
+  Node current=start;
+  for(int i=0; i<index;i++){
+    current=current.getNext();
+  }
+  return current;
+}
 
  public void add(int index, String value){
     Node insert=new Node(value);
@@ -39,10 +47,7 @@ public class MyLinkedList{
      start=insert;
    }
    else{
-     Node current=start;
-     for(int i=0; i<index;i++){
-       current=current.getNext();
-     }
+    Node current=findNode(index);
      Node p=current.getPrev();
      p.setNext(insert);
      insert.setPrev(p);
