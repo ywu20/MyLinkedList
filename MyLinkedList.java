@@ -10,30 +10,59 @@ public class MyLinkedList{
    return size;
  };
  public boolean add(String value){
-   Node x=new Node(value);
+   Node newEnd=new Node(value);
    Node y=new Node(end.getData());
    if(size==0){
-     start.setData(value);
+     start=newEnd;
+     end=newEnd;
    }
- else if (size==1){
-   start.setNext(x);
- }else{
-   end.setPrev(y);
- }
- end.setData(value);
+   else{
+   newEnd.setPrev(end);
+   end.setNext(newEnd);
+   end=newEnd;
+}
+
  size++;
    return true;
  };
 
- /*
  public void add(int index, String value){
- };
- public String get(int index);
- public String set(int index, String value);
- */
+   if(index >=size){
+     throw new IndexOutOfBoundsException();
+   }
+   else{
+     Node current=start;
+     for(int i=0; i<index;i++){
+       current=current.getNext();
+     }
+     Node p=current.getPrev();
+     Node n=current.getNext();
+     Node insert=new Node(value);
+     p.setNext(insert);
+     insert.setPrev(p);
+     current.setPrev(insert);
+     insert.setNext(n);
+   }
+ }
+ public String get(int index){
+   return "hi";
+ }
+ public String set(int index, String value)
+{
+  return "boo";
+}
+
+public void print(){
+  Node current = start;
+while (current != null){
+ System.out.println(current);
+ current = current.getNext();
+}
+}
+/*
  public String toString(){
-   return start.toString()+" "+end.toString(); //just for preliminary testing
- };
+//just for preliminary testing
+};*/
  //Any helper method that returns a Node object MUST BE PRIVATE!
 
 }
