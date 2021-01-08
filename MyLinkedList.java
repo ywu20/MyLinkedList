@@ -3,8 +3,8 @@ public class MyLinkedList{
  private Node start,end;
  public MyLinkedList(){
    size=0;
-   start=new Node("");
-   end=new Node("");
+  // start=null;
+  // end=null;
  }
  public int size(){
    return size;
@@ -60,7 +60,12 @@ if(index==size){
 
  public String remove(int index){
 String out="";
-   if(index==0){
+if(size==1){
+  out=start.getData();
+  start=null;
+  end=null;
+}
+   else if(index==0){
      out=start.getData();
      start=start.getNext();
      start.setPrev(null);
