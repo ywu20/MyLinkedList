@@ -89,6 +89,7 @@ if(size==1){
  public void extend(MyLinkedList other){
    end.setNext(other.start);
    other.start.setPrev(this.end);
+   other.start=null; other.end=null; other.size=0;
  }
  public String get(int index){
    if(index >=size || index<0){
