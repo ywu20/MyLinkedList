@@ -97,6 +97,7 @@ if(size==1){
    end.setNext(other.start);
    other.start.setPrev(this.end);
    size+=other.size;
+   end=other.end;
  }
    other.start=null; other.end=null; other.size=0;
  }
